@@ -1,0 +1,15 @@
+ <% if(drugs.length === 0){ %>
+   <p> No drug found. Add to database</p>
+ <%}else{%>
+   <% drugs.forEach(drug =>{ %>
+    <h2><%= drug.name %></h2>
+    <p>Reg. Price: <%= drug.regPrice%></p>
+    <p>BHIS Price: <%= drug.bhisPrice%></p>
+    <form hx-post="/cart/add/<%= drug.id %>" hx-target="#cartCount" hx-swap="innerHTML">
+      <input class="border" name="quantity" type="number" min="1">
+      <button type="submit">Add to Cart</button>
+    </form>
+  <% }) %>
+ <%}%>
+ 
+  

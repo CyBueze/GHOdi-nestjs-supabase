@@ -1,0 +1,27 @@
+<div x-data="{
+
+}">
+  <div 
+  class="my-6" 
+  id="cartCount"
+  hx-get="/cart"
+  hx-target="body"
+  hx-push-url=true
+  >Cart: <%= cart.length%></div>
+  <div>
+    <input 
+    type="text" 
+    name="search"
+    type="search"
+    class="border p-2" 
+    placeholder="Search for drugs here..."
+    hx-post="/drugs/search"
+    hx-target="#drugList"
+    hx-trigger="input changed delay:500ms">
+  </div>
+  
+  <div id="drugList">
+      <%- include("partials/drugList.ejs")%>
+  </div>
+
+</div>
