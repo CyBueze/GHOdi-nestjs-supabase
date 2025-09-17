@@ -44,7 +44,7 @@ var app_module_1 = require("./app.module");
 var path_1 = require("path");
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function () {
-        var sessionSecret, app;
+        var sessionSecret, app, port;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -68,7 +68,8 @@ function bootstrap() {
                     // enable layouts
                     app.use(expressLayouts);
                     app.set('layout', 'layouts/main'); // default layout
-                    return [4 /*yield*/, app.listen(3000)];
+                    port = process.env.PORT || 3000;
+                    return [4 /*yield*/, app.listen(port)];
                 case 2:
                     _a.sent();
                     return [2 /*return*/];

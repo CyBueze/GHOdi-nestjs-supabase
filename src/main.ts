@@ -35,7 +35,8 @@ async function bootstrap() {
   // enable layouts
   app.use(expressLayouts);
   app.set('layout', 'layouts/main'); // default layout
-
-  await app.listen(3000);
+  
+  const port = process.env.PORT || 3000
+  await app.listen(port);
 }
 bootstrap();
